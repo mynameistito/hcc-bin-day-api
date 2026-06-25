@@ -32,7 +32,7 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "start": "bun run src/index.ts",
+    "dev": "bun run src/index.ts",
     "check": "ultracite check",
     "fix": "ultracite fix",
     "typecheck": "tsgo --noEmit",
