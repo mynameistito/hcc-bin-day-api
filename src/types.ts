@@ -10,10 +10,4 @@ export interface CollectionDatesResult {
   CollectionDay: number;
 }
 
-export interface CollectionSchedule {
-  address: string;
-  redBin: Date;
-  yellowBin: Date;
-  collectionWeek: number;
-  collectionDay: number;
-}
+export type { CollectionSchedule } from "./schedule";

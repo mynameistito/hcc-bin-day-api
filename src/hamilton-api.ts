@@ -1,3 +1,5 @@
+import { normalizeAddress } from "./normalize-address";
+import { buildSchedule } from "./schedule";
 import type {
   AddressLookupResult,
   CollectionDatesResult,
@@ -45,13 +47,7 @@ export const getCollectionSchedule = async (
     return null;
   }
 
-  return {
-    address: first.Address,
-    collectionDay: first.CollectionDay,
-    collectionWeek: first.CollectionWeek,
-    redBin: new Date(first.RedBin),
-    yellowBin: new Date(first.YellowBin),
-  };
+  return buildSchedule(first);
 };
 
 export const getScheduleForAddress = async (
@@ -59,7 +55,7 @@ export const getScheduleForAddress = async (
 ): Promise<CollectionSchedule | null> => {
   const matches = await searchAddresses(addressQuery);
   const exactMatch = matches.find(
-    (match) => match.toLowerCase() === addressQuery.trim().toLowerCase()
+    (match) => normalizeAddress(match) === normalizeAddress(addressQuery)
   );
 
   if (!exactMatch) {
