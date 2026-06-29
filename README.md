@@ -71,7 +71,6 @@ This project is unofficial and is not affiliated with, endorsed by, supported by
 
 It is provided independently as a convenience for accessing publicly available collection data. API behavior, availability, response formats, and returned data may change without notice.
 
-
 ## License
 
 MIT
